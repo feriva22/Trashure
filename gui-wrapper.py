@@ -15,14 +15,22 @@ class Window(Frame):
         #parameter that you want for Frame class, param master as root of window tkinter
         Frame.__init__(self, master)
         #reference to the master widget, which is tkinter window
+        pad=3
         self.master = master
+        """self._geom='200x200+0+0'
+        self.master.geometry("{0}x{1}+0+0".format(
+            self.master.winfo_screenwidth()-pad, self.master.winfo_screenheight()-pad))
+        self.master.bind('<Escape>',self.toggle_geom)"""
+        #self.master.attributes('-fullscren',True)
+        w, h = 640, 480
+        self.master.overrideredirect(1)
+        self.master.geometry("%dx%d+0+0" % (w, h))
         self.init_window()
-
 
     #GUI config and widget 
     def init_window(self):
         #set size of window
-        self.master.geometry("480x320")
+        #self.master.geometry("640x480")
 
         if (self.isLogin is False):
             self.loginPage()
